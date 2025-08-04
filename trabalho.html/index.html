@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cine Br</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho com botão -->
+    <header>
+      <span class="menu-btn" onclick="abrirMenu()">&#9776;</span>
+      <h1 class="logo"></h1>
+    </header>
+
+    <!-- Menu lateral -->
+    <nav id="menu-lateral" class="menu-lateral">
+      <div class="menu-topo">
+        <h2>Menu</h2>
+        <span class="fechar-btn" onclick="fecharMenu()">&times;</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+        <li><a href="premiacoes.html">Premiações</a></li>
+        <li><a href="celebridades.html">Celebridades</a></li>
+        <li><a href="ultimasnoticias.html">Últimas Notícias</a></li>
+        <li><a href="contatos.html">contatos </a></li>
+      </ul>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="landing">
+      <section class="destaque">
+        <img
+          src="imagens/logo3.png"
+          alt="Logo Cine BR"
+          class="logo-principal"
+        />
+        <h2>Bem-vindo ao Cine BR!</h2>
+        <p>
+          O Cine BR é o seu portal de referência para tudo relacionado ao cinema
+          nacional. Aqui você encontra notícias atualizadas, perfis de artistas,
+          premiações, história do cinema brasileiro e muito mais!
+        </p>
+        <a class="botao" href="sobrenos.html">Conheça o projeto</a>
+      </section>
+
+      <section class="secao-chamada">
+        <h3>Explore por categorias</h3>
+        <div class="botoes-link">
+          <a href="ultimasnoticias.html" class="link-chamada"
+            >📰 Últimas Notícias</a
+          >
+          <a href="celebridades.html" class="link-chamada">🌟 Celebridades</a>
+          <a href="premiacoes.html" class="link-chamada">🏆 Premiações</a>
+          <a href="sobrenos.html" class="link-chamada">📚 Sobre o projeto</a>
+          <a href="contatos.html" class="link-chamada">📩 Contato</a>
+          <a href="historia.html" class="link-chamada">📖História do cinema</a>
+        </div>
+      </section>
+
+      <!-- Nova seção: Destaques Recentes -->
+      <section class="galeria">
+        <h3 class="galeria-titulo">Destaques Recentes</h3>
+        <div class="galeria-imagens">
+          <img src="imagens/noticia1.jpg" alt="Ney Matogrosso" />
+          <img src="imagens/noticia2.jpg" alt="Wagner Moura" />
+          <img src="imagens/noticia3.webp" alt="Cinema em shoppings" />
+          <img src="imagens/noticia4.webp" alt="Petra Costa" />
+          <img src="imagens/noticia5.webp" alt="Mostra Recife" />
+          <img src="imagens/noticia6.webp" alt="Festival Penedo" />
+        </div>
+      </section>
+
+      <!-- Nova seção: História -->
+      <section class="historia">
+        <h3>História do Cinema Brasileiro</h3>
+        <p>
+          Desde os tempos do Cinema Novo com Glauber Rocha até os sucessos
+          contemporâneos como *Bacurau*, o cinema brasileiro sempre refletiu a
+          alma e os desafios do país. Nossa produção cinematográfica é diversa,
+          engajada e repleta de histórias únicas.
+        </p>
+        <p>
+          O cinema nacional tem se reinventado com o tempo, trazendo novas
+          vozes, representatividade e um olhar profundo sobre a sociedade. O
+          Cine BR celebra essa trajetória.
+        </p>
+      </section>
+
+      <!-- Nova seção: Filmes em Foco -->
+      <section class="filmes-foco">
+        <h3>Filmes em Foco</h3>
+        <div class="filme">
+          <img src="imagens/noticia5.webp" alt="Wagner Moura destaque" />
+          <div>
+            <h4>Ainda estou aqui</h4>
+            <p>
+              No início da década de 1970, o Brasil enfrenta o endurecimento da
+              ditadura militar. No Rio de Janeiro, a família Paiva, formada pelo
+              casal Rubens e Eunice e seus cinco filhos, vive à beira da praia
+              em uma casa de portas abertas para os amigos. Um dia, Rubens é
+              levado por militares à paisana e desaparece.
+            </p>
+          </div>
+        </div>
+        <div class="filme">
+          <img src="imagens/noticia1.jpg" alt="Salas de cinema" />
+          <div>
+            <h4>Homem com H</h4>
+            <p>
+              As diferentes fases da carreira do cantor Ney Matogrosso, desde a
+              sua infância, passando pela adolescência e a vida adulta. Uma
+              jornada através do tempo que acompanha um rapaz de origem humilde
+              que quebra preconceitos e se torna um artista influente.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Convite -->
+      <section class="convite">
+        <h3>Faça parte dessa jornada cinematográfica</h3>
+        <p>
+          Explore, compartilhe e valorize o nosso cinema. As histórias
+          brasileiras merecem ser contadas, vistas e lembradas. Seja bem-vindo
+          ao Cine BR!
+        </p>
+        <a class="botao" href="ultimasnoticias.html">Acompanhe as notícias</a>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <p>&copy; 2025 Cine BR. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Caio Cavalcante</p>
+        <div class="redes-sociais">
+          <a href="https://www.instagram.com/caiorkn/" title="Instagram"
+            >Instagram</a
+          >
+          <a href="https://github.com/caio-del" title="Github">Github</a>
+          <a
+            href="https://www.linkedin.com/in/caio-cavalcante-115012339/"
+            title="Linkedin"
+            >Linkedin</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script do menu -->
+    <script>
+      function abrirMenu() {
+        document.getElementById("menu-lateral").style.width = "250px";
+      }
+      function fecharMenu() {
+        document.getElementById("menu-lateral").style.width = "0";
+      }
+    </script>
+  </body>
+</html>

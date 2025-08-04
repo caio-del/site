@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Termos de Uso - Cine BR</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <span class="menu-btn" onclick="abrirMenu()">&#9776;</span>
+      <h1 class="logo">Cine BR</h1>
+    </header>
+
+    <!-- Menu lateral -->
+    <nav id="menu-lateral" class="menu-lateral">
+      <div class="menu-topo">
+        <h2>Menu</h2>
+        <span class="fechar-btn" onclick="fecharMenu()">&times;</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+        <li><a href="premiacoes.html">Premiações</a></li>
+        <li><a href="celebridades.html">Celebridades</a></li>
+        <li><a href="ultimasnoticias.html">Últimas Notícias</a></li>
+        <li><a href="#" onclick="fecharMenu()">Retornar</a></li>
+      </ul>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo">
+      <h2>Termos de Uso</h2>
+      <p>
+        Ao acessar e utilizar o site Cine BR, você concorda com os presentes
+        termos e condições de uso. Estes termos visam proteger tanto os usuários
+        quanto os desenvolvedores do site, assegurando uma experiência
+        respeitosa, transparente e ética. A navegação e uso de qualquer conteúdo
+        ou funcionalidade do site implicam na leitura e aceitação integral
+        desses termos.
+      </p>
+      <p>
+        Todo o conteúdo presente neste site, incluindo textos, imagens,
+        logotipos, vídeos e elementos gráficos, é protegido por direitos
+        autorais. A reprodução, distribuição, modificação ou uso para fins
+        comerciais sem autorização prévia dos responsáveis é estritamente
+        proibida. Este site é destinado apenas a fins educacionais, informativos
+        e de entretenimento relacionados ao cinema brasileiro.
+      </p>
+      <p>
+        Não garantimos que todas as informações estejam atualizadas ou livres de
+        erros. O Cine BR não se responsabiliza por eventuais prejuízos causados
+        pelo uso das informações contidas neste portal. É de responsabilidade do
+        usuário verificar a autenticidade das fontes externas quando
+        disponibilizadas.
+      </p>
+      <p>
+        Reservamo-nos o direito de alterar os termos de uso a qualquer momento,
+        sem aviso prévio. Recomenda-se que os usuários revisem esta página
+        periodicamente. O uso contínuo do site após as mudanças indica a
+        aceitação das modificações.
+      </p>
+      <p>
+        O usuário compromete-se a utilizar o Cine BR de forma ética, respeitando
+        as leis vigentes, os demais usuários e os princípios deste termo.
+        Comentários ofensivos, difamatórios ou discriminatórios não serão
+        tolerados e poderão resultar em bloqueio ou remoção de acesso ao
+        conteúdo.
+      </p>
+
+      <!-- Formulário de aceite -->
+      <form class="form-termos" onsubmit="return verificarAceite()">
+        <label>
+          <input type="checkbox" id="aceite" />
+          Eu li e concordo com os termos de uso.
+        </label>
+        <br /><br />
+        <button type="submit" class="botao">Prosseguir</button>
+      </form>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <p>&copy; 2025 Cine BR. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Caio Cavalcante</p>
+      </div>
+    </footer>
+
+    <!-- Script do menu e formulário -->
+    <script>
+      function abrirMenu() {
+        document.getElementById("menu-lateral").style.width = "250px";
+      }
+
+      function fecharMenu() {
+        document.getElementById("menu-lateral").style.width = "0";
+      }
+
+      function verificarAceite() {
+        const aceite = document.getElementById("aceite");
+        if (!aceite.checked) {
+          alert("Você deve aceitar os termos de uso para continuar.");
+          return false;
+        }
+
+        // Redireciona para a página inicial após aceite
+        window.location.href = "index.html";
+        return false; // evita envio real do formulário
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato - Cine BR</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <span class="menu-btn" onclick="abrirMenu()">&#9776;</span>
+      <h1 class="logo">Cine BR</h1>
+    </header>
+
+    <!-- Menu lateral -->
+    <nav id="menu-lateral" class="menu-lateral">
+      <div class="menu-topo">
+        <h2>Menu</h2>
+        <span class="fechar-btn" onclick="fecharMenu()">&times;</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+        <li><a href="premiacoes.html">Premiações</a></li>
+        <li><a href="celebridades.html">Celebridades</a></li>
+        <li><a href="ultimasnoticias.html">Últimas Notícias</a></li>
+        <li><a href="contatos.html">contatos </a></li>
+      </ul>
+    </nav>
+    <!-- Conteúdo principal -->
+    <main class="pagina-contato">
+      <h2>Fale Conosco</h2>
+      <p>
+        Tem sugestões, dúvidas, reclamações ou quer colaborar com o Cine BR?
+        Preencha o formulário abaixo e entraremos em contato.
+      </p>
+
+      <form class="form-contato">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <p>&copy; 2025 Cine BR. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Caio Cavalcante</p>
+        <div class="redes-sociais">
+          <a href="https://www.instagram.com/caiorkn/" title="Instagram"
+            >Instagram</a
+          >
+          <a href="https://github.com/caio-del" title="Github">Github</a>
+          <a
+            href="https://www.linkedin.com/in/caio-cavalcante-115012339/"
+            title="Linkedin"
+            >Linkedin</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script do menu -->
+    <script>
+      function abrirMenu() {
+        document.getElementById("menu-lateral").style.width = "250px";
+      }
+
+      function fecharMenu() {
+        document.getElementById("menu-lateral").style.width = "0";
+      }
+    </script>
+  </body>
+</html>

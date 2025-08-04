@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>História do Cinema Brasileiro</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <span class="menu-btn" onclick="abrirMenu()">&#9776;</span>
+      <h1 class="logo">Cine BR</h1>
+    </header>
+
+    <!-- Menu lateral -->
+    <nav id="menu-lateral" class="menu-lateral">
+      <div class="menu-topo">
+        <h2>Menu</h2>
+        <span class="fechar-btn" onclick="fecharMenu()">&times;</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+        <li><a href="ultimasnoticias.html">Últimas Notícias</a></li>
+        <li><a href="celebridades.html">Celebridades</a></li>
+        <li><a href="premiacoes.html">Premiações</a></li>
+        <li><a href="historia.html">História</a></li>
+      </ul>
+    </nav>
+
+    <main class="timeline-container">
+      <div class="titulo-box">
+        <h1 class="titulo-historia">Linha do Tempo do Cinema Brasileiro</h1>
+      </div>
+
+      <!-- Item 1 -->
+      <div class="timeline-item left">
+        <h3>1900 - Os Primeiros Registros</h3>
+        <p>
+          No início do século XX, o Brasil presenciou as primeiras projeções
+          cinematográficas, trazidas por exibidores estrangeiros. As primeiras
+          câmeras começaram a registrar cenas do cotidiano das cidades, festas
+          populares e eventos políticos. Essa fase pioneira, ainda bastante
+          experimental, foi marcada por produções curtas e sem roteiro
+          elaborado, mas já mostrava a curiosidade e o potencial do público
+          brasileiro para essa nova arte.
+        </p>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="timeline-item right">
+        <h3>1930 - A Era de Ouro das Chanchadas</h3>
+        <p>
+          As décadas de 1930 e 1940 consolidaram as chanchadas como o gênero
+          mais popular no Brasil. Produzidas em estúdios como a Cinédia e a
+          Atlântida, essas comédias musicais eram recheadas de humor leve,
+          músicas cativantes e enredos simples. Serviam como válvula de escape
+          em tempos de crise e ajudaram a criar ídolos nacionais, como Grande
+          Otelo e Oscarito. Apesar das críticas de parte da elite, as chanchadas
+          moldaram a indústria cinematográfica e a cultura popular.
+        </p>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="timeline-item left">
+        <h3>1960 - O Movimento Cinema Novo</h3>
+        <p>
+          Com o lema "uma câmera na mão e uma ideia na cabeça", o Cinema Novo
+          revolucionou o audiovisual brasileiro. Liderado por diretores como
+          Glauber Rocha, Nelson Pereira dos Santos e Ruy Guerra, o movimento
+          buscava representar as realidades sociais do país, denunciando
+          desigualdades e propondo uma estética própria, distante dos padrões
+          hollywoodianos. Obras como "Deus e o Diabo na Terra do Sol" se
+          tornaram marcos dessa fase, misturando política, arte e poesia visual.
+        </p>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="timeline-item right">
+        <h3>1990 - A Retomada</h3>
+        <p>
+          Após a crise da Embrafilme e o colapso da produção nacional no final
+          dos anos 1980, o cinema brasileiro renasceu na década de 1990.
+          Incentivos como a Lei do Audiovisual e a Lei Rouanet trouxeram novos
+          investimentos, e filmes como "Carlota Joaquina" e "O Quatrilho"
+          marcaram o início da Retomada. Esse período mostrou que o país tinha
+          capacidade de criar obras competitivas, que conquistaram não só o
+          público interno, mas também espaço no circuito internacional.
+        </p>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="timeline-item left">
+        <h3>2000 - Reconhecimento Internacional</h3>
+        <p>
+          No início do século XXI, produções como "Cidade de Deus", "Central do
+          Brasil" e "Tropa de Elite" levaram o cinema brasileiro a novos
+          patamares. Esses filmes não só conquistaram bilheterias expressivas,
+          como também foram indicados e premiados no Oscar e em festivais de
+          prestígio. A diversidade de gêneros — do drama social à ação policial
+          — provou que o Brasil podia competir em qualidade com grandes
+          produções mundiais.
+        </p>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="timeline-item right">
+        <h3>Atualidade - Diversidade e Novas Narrativas</h3>
+        <p>
+          Hoje, o cinema brasileiro vive um momento de pluralidade sem
+          precedentes. Novos cineastas, muitos deles mulheres, negros, indígenas
+          e pessoas LGBTQIA+, estão trazendo para as telas histórias antes
+          invisibilizadas. Plataformas de streaming também ampliaram o alcance
+          das produções nacionais, permitindo que elas cheguem a públicos de
+          diferentes países. Apesar dos desafios econômicos e políticos, o setor
+          segue vibrante, reinventando-se e reafirmando a importância de contar
+          nossas próprias histórias.
+        </p>
+      </div>
+    </main>
+
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <p>&copy; 2025 Cine BR. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Caio Cavalcante</p>
+        <div class="redes-sociais">
+          <a href="https://www.instagram.com/caiorkn/" title="Instagram"
+            >Instagram</a
+          >
+          <a href="https://github.com/caio-del" title="Github">Github</a>
+          <a
+            href="https://www.linkedin.com/in/caio-cavalcante-115012339/"
+            title="Linkedin"
+            >Linkedin</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function abrirMenu() {
+        document.getElementById("menu-lateral").style.width = "250px";
+      }
+      function fecharMenu() {
+        document.getElementById("menu-lateral").style.width = "0";
+      }
+    </script>
+  </body>
+</html>

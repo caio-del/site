@@ -1,0 +1,1070 @@
+/* === RESET E ESTILO GLOBAL === */
+* {
+  /* Seleciona todos os elementos */
+  box-sizing: border-box; /* Inclui o padding e a borda dentro da largura/altura total do elemento */
+}
+
+body {
+  /* Define o estilo global para o corpo da página */
+  margin: 0; /* Remove o espaçamento padrão do navegador */
+  font-family: Arial, sans-serif; /* Define a fonte padrão */
+  background-color: #0d0d0d; /* Cor de fundo preta suave */
+  color: white; /* Cor padrão do texto branca */
+}
+
+/* === CABEÇALHO === */
+header {
+  /* Estilo da barra de cabeçalho */
+  display: flex; /* Usa flexbox para alinhar os elementos */
+  align-items: center; /* Centraliza verticalmente o conteúdo */
+  background-color: #111; /* Cor de fundo preta levemente mais clara */
+  color: white; /* Cor do texto branca */
+  padding: 15px; /* Espaçamento interno */
+  gap: 15px; /* Espaçamento entre elementos filhos */
+}
+
+.menu-btn {
+  /* Ícone/botão do menu hambúrguer */
+  font-size: 26px; /* Tamanho do ícone */
+  cursor: pointer; /* Mostra o cursor de clique */
+}
+
+.logo {
+  /* Estilo do texto/logo do site */
+  font-size: 20px; /* Tamanho do texto */
+}
+
+/* === MENU LATERAL === */
+.menu-lateral {
+  /* Caixa do menu lateral escondido */
+  height: 100%; /* Ocupa toda a altura da tela */
+  width: 0; /* Começa escondido (sem largura) */
+  position: fixed; /* Fica fixo na tela mesmo ao rolar */
+  top: 0; /* Encosta no topo */
+  left: 0; /* Encosta na esquerda */
+  background-color: #111; /* Cor de fundo preta */
+  overflow-x: hidden; /* Esconde qualquer rolagem horizontal */
+  transition: 0.3s; /* Anima a abertura e fechamento */
+  padding-top: 60px; /* Espaço no topo para não encostar no header */
+  z-index: 1000; /* Fica acima de outros elementos */
+}
+
+.menu-topo {
+  /* Área do topo do menu lateral */
+  position: absolute; /* Fixa em relação ao menu lateral */
+  top: 0; /* Encosta no topo */
+  left: 0; /* Encosta na esquerda */
+  width: 100%; /* Ocupa toda a largura do menu */
+  padding: 15px; /* Espaço interno */
+  background-color: #1a1a1a; /* Fundo preto levemente diferente */
+  display: flex; /* Flexbox para alinhar elementos */
+  justify-content: space-between; /* Espaça os itens para lados opostos */
+  align-items: center; /* Alinha verticalmente ao centro */
+}
+
+.fechar-btn {
+  /* Botão de fechar (X) do menu lateral */
+  font-size: 28px; /* Tamanho do X */
+  cursor: pointer; /* Cursor de clique */
+}
+
+.menu-lateral ul {
+  /* Lista do menu lateral */
+  list-style: none; /* Remove os marcadores padrão da lista */
+  padding: 0; /* Remove o espaçamento interno */
+  margin: 0; /* Remove o espaçamento externo */
+}
+
+.menu-lateral ul li {
+  /* Cada item da lista */
+  padding: 12px 20px; /* Espaçamento interno (vertical e horizontal) */
+  border-bottom: 1px solid #333; /* Linha separadora entre itens */
+}
+
+.menu-lateral ul li a {
+  /* Links dentro do menu */
+  color: white; /* Cor do texto branca */
+  text-decoration: none; /* Remove o sublinhado padrão */
+  display: block; /* Faz o link ocupar toda a área do item */
+  font-weight: bold; /* Texto em negrito */
+}
+
+.menu-lateral ul li a:hover {
+  /* Efeito ao passar o mouse no link */
+  background-color: #333; /* Fundo mais claro no hover */
+}
+
+/* === CARTAZES DE NOTÍCIA === */
+
+/* Estilo do título da página de celebridades */
+.titulo-celebridades {
+  text-align: center; /* Centraliza o texto horizontalmente */
+  font-size: 28px; /* Define o tamanho da fonte */
+  color: #ffcc33; /* Cor amarela */
+  margin-bottom: 40px; /* Espaço abaixo do título */
+  padding-bottom: 10px; /* Espaço interno na parte inferior */
+  border-bottom: 2px solid #ffcc33; /* Linha amarela embaixo do título */
+}
+
+/* Estilo para um span dentro do título de celebridades */
+.titulo-celebridades span {
+  text-align: center; /* Centraliza o texto do span */
+  font-size: 28px; /* Tamanho igual ao título */
+  color: #ffcc33; /* Cor amarela */
+  margin-bottom: 40px; /* Espaço inferior */
+  padding-bottom: 10px; /* Espaço interno inferior */
+  border-bottom: 2px solid #ffcc33; /* Linha amarela inferior */
+}
+
+/* Container geral dos cartazes */
+.cartaz-container {
+  display: grid; /* Usa layout em grade */
+  grid-template-columns: repeat(3, 1fr); /* Divide em 3 colunas iguais */
+  gap: 20px; /* Espaço entre os cartazes */
+  padding: 20px; /* Espaço interno do container */
+  justify-content: center; /* Centraliza o grid no container */
+  margin-left: 10%; /* Espaço à esquerda (pode causar desalinhamento) */
+  margin-top: 5%; /* Espaço acima */
+}
+
+/* Cada cartaz individual */
+.cartaz {
+  background-color: #1a1a1a; /* Fundo cinza-escuro */
+  border-radius: 12px; /* Bordas arredondadas */
+  width: 100%; /* Ocupa toda a largura da coluna */
+  max-width: 290px; /* Largura máxima do cartaz */
+  overflow: hidden; /* Esconde conteúdo que ultrapassar */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Sombra */
+  transition: transform 0.3s ease; /* Animação ao aplicar transformações */
+  text-align: center; /* Centraliza o conteúdo */
+  display: flex; /* Flexbox para alinhar verticalmente */
+  flex-direction: column; /* Elementos um abaixo do outro */
+}
+
+/* Links dentro do cartaz */
+.cartaz a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Organiza verticalmente */
+  height: 100%; /* Ocupa altura total do cartaz */
+}
+
+/* Imagem dentro do cartaz */
+.cartaz img.Ney {
+  width: 100%; /* Ocupa toda a largura do cartaz */
+  height: auto; /* Mantém a proporção da imagem */
+  border: none; /* Remove borda */
+  display: block; /* Remove espaçamento de imagem inline */
+}
+
+/* Legenda do cartaz */
+.cartaz figcaption {
+  padding: 12px; /* Espaço interno */
+  font-size: 15px; /* Tamanho da fonte */
+  color: white; /* Texto branco */
+  font-weight: bold; /* Texto em negrito */
+  background-color: #0d0d0d; /* Fundo preto */
+  border-top: 1px solid #333; /* Linha separadora acima */
+  flex-grow: 1; /* Faz o texto ocupar o espaço disponível */
+  display: flex; /* Flexbox */
+  align-items: center; /* Centraliza verticalmente o texto */
+  justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* RESPONSIVIDADE */
+
+/* Quando a tela tiver até 900px */
+@media (max-width: 900px) {
+  .cartaz-container {
+    grid-template-columns: repeat(2, 1fr); /* Muda para 2 colunas */
+  }
+}
+
+/* Quando a tela tiver até 600px */
+@media (max-width: 600px) {
+  .cartaz-container {
+    grid-template-columns: 1fr; /* Apenas 1 coluna */
+  }
+}
+
+/* === RODAPÉ === */
+.rodape {
+  background-color: #111; /* Fundo cinza-escuro */
+  color: #ccc; /* Cor de texto cinza claro */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+  margin-top: 40px; /* Espaço acima do rodapé */
+  border-top: 1px solid #333; /* Linha superior sutil */
+}
+
+.rodape-conteudo {
+  max-width: 900px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.rodape p {
+  margin: 5px 0; /* Espaçamento acima e abaixo dos parágrafos */
+  font-size: 14px; /* Tamanho da fonte */
+}
+
+.redes-sociais {
+  margin-top: 10px; /* Espaço acima da área de redes sociais */
+}
+
+.redes-sociais a {
+  color: #ccc; /* Cor do texto/link */
+  margin: 0 10px; /* Espaço horizontal entre os links */
+  text-decoration: none; /* Remove sublinhado */
+  font-weight: bold; /* Texto em negrito */
+  transition: color 0.3s; /* Animação suave ao mudar a cor */
+}
+
+.redes-sociais a:hover {
+  color: #f2f2f2; /* Muda para branco no hover */
+}
+
+/* === RESPONSIVIDADE === */
+
+/* Ajustes para telas até 900px */
+@media (max-width: 900px) {
+  .cartaz {
+    width: 45%; /* Faz cada cartaz ocupar quase metade da largura */
+  }
+
+  header {
+    flex-direction: row; /* Mantém o cabeçalho em linha */
+    justify-content: space-between; /* Espaça os elementos */
+  }
+}
+
+/* Ajustes para telas até 600px */
+@media (max-width: 600px) {
+  .cartaz {
+    width: 100%; /* Cartaz ocupa toda a largura */
+  }
+
+  .cartaz-container {
+    padding: 10px; /* Reduz o espaçamento interno */
+    gap: 15px; /* Reduz o espaço entre os cartazes */
+  }
+
+  header {
+    flex-direction: column; /* Coloca o logo e menu um abaixo do outro */
+    align-items: flex-start; /* Alinha à esquerda */
+    padding: 10px; /* Reduz o espaçamento interno */
+    gap: 5px; /* Espaço pequeno entre itens */
+  }
+
+  .logo {
+    font-size: 18px; /* Reduz o tamanho do logo */
+  }
+
+  .menu-btn {
+    font-size: 24px; /* Reduz tamanho do ícone do menu */
+  }
+
+  .rodape p {
+    font-size: 13px; /* Diminui o tamanho da fonte */
+  }
+
+  .redes-sociais a {
+    display: block; /* Links das redes ficam em linha vertical */
+    margin: 5px 0; /* Espaço entre os links */
+  }
+
+  .rodape-conteudo {
+    padding: 0 15px; /* Adiciona espaçamento lateral */
+  }
+}
+
+/* PÁGINA CELEBRIDADES*/
+/* === PÁGINA CELEBRIDADES === */
+.pagina-celebridades {
+  max-width: 900px; /* Limita a largura máxima */
+  margin: 40px auto; /* Centraliza e dá espaço acima/abaixo */
+  padding: 0 20px; /* Espaçamento interno lateral */
+}
+
+.titulo-celebridades {
+  text-align: center; /* Centraliza o título */
+  font-size: 28px; /* Tamanho do texto */
+  color: #ffcc33; /* Cor amarela */
+  margin-bottom: 40px; /* Espaço inferior */
+  padding-bottom: 10px; /* Espaço interno inferior */
+  border-bottom: 2px solid #ffcc33; /* Linha amarela abaixo do título */
+}
+
+/* === PÁGINA NOTÍCIAS === */
+
+.pagina-noticias {
+  max-width: 900px; /* Limite de largura */
+  margin: 40px auto; /* Centraliza e dá espaço em cima/baixo */
+  padding: 0 20px; /* Espaçamento lateral interno */
+  text-align: center; /* Centraliza o conteúdo */
+}
+
+.titulo-noticias {
+  font-size: 28px; /* Tamanho da fonte */
+  color: #ffcc33; /* Cor amarela */
+  margin: 0 auto 40px auto; /* Centraliza e adiciona margem inferior */
+  padding-bottom: 10px; /* Espaço interno inferior */
+  border-bottom: 2px solid #ffcc33; /* Linha amarela abaixo do título */
+  display: inline-block; /* Faz com que a linha de borda acompanhe o texto */
+}
+
+/* Blocos com as informações de cada celebridade */
+.blocos-celebridades {
+  display: flex; /* Layout em linha */
+  flex-direction: column; /* Organiza os elementos em coluna */
+  gap: 25px; /* Espaço entre cada item */
+}
+
+/* Cartão individual da celebridade */
+.cartao-celebridade {
+  display: flex; /* Layout em linha */
+  gap: 20px; /* Espaço entre a imagem e o texto */
+  background-color: #1a1a1a; /* Fundo escuro */
+  padding: 15px; /* Espaçamento interno */
+  border-radius: 10px; /* Cantos arredondados */
+  align-items: center; /* Centraliza verticalmente */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Sombra */
+  transition: background-color 0.3s; /* Animação na mudança de fundo */
+}
+
+/* Imagem da celebridade */
+.cartao-celebridade img {
+  width: 120px; /* Largura fixa */
+  height: 160px; /* Altura fixa */
+  border-radius: 8px; /* Cantos arredondados */
+  object-fit: cover; /* Mantém proporção cortando a imagem */
+}
+
+/* Nome da celebridade */
+.cartao-celebridade h3 {
+  margin: 0; /* Remove margem padrão */
+  font-size: 20px; /* Tamanho da fonte */
+  color: white; /* Cor do texto */
+}
+
+/* Descrição da celebridade */
+.cartao-celebridade p {
+  margin-top: 8px; /* Espaço acima do parágrafo */
+  font-size: 15px; /* Tamanho da fonte */
+  color: #ccc; /* Cor cinza clara */
+}
+
+/* Efeito hover no cartão */
+.cartao-celebridade:hover {
+  background-color: #292929; /* Fica levemente mais claro no hover */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 700px) {
+  .cartao-celebridade {
+    flex-direction: column; /* Muda para formato vertical */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .cartao-celebridade img {
+    width: 100%; /* Imagem ocupa toda a largura */
+    height: auto; /* Mantém proporção da imagem */
+  }
+}
+
+/* === PÁGINA SOBRE NÓS === */
+.conteudo {
+  max-width: 960px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+  color: #e0e0e0;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.conteudo h2 {
+  color: #ffcc33;
+  font-size: 28px;
+  margin-top: 20px;
+  border-left: 5px solid #ffcc33;
+  padding-left: 10px;
+}
+
+.conteudo p {
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .conteudo {
+    padding: 15px;
+    margin: 30px 10px;
+    font-size: 15px;
+  }
+
+  .conteudo h2 {
+    font-size: 22px;
+  }
+}
+
+/* === LANDING PAGE === */
+
+/* === PÁGINA SOBRE NÓS === */
+.conteudo {
+  max-width: 960px; /* Largura máxima do conteúdo */
+  margin: 50px auto; /* Centraliza e dá espaço acima/abaixo */
+  padding: 20px; /* Espaçamento interno */
+  background-color: #1a1a1a; /* Fundo escuro */
+  border-radius: 12px; /* Cantos arredondados */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.08); /* Sombra suave */
+  color: #e0e0e0; /* Cor do texto */
+  line-height: 1.8; /* Espaçamento entre linhas */
+  font-size: 16px; /* Tamanho da fonte */
+}
+
+.conteudo h2 {
+  color: #ffcc33; /* Cor amarela */
+  font-size: 28px; /* Tamanho da fonte */
+  margin-top: 20px; /* Espaço acima */
+  border-left: 5px solid #ffcc33; /* Linha amarela à esquerda */
+  padding-left: 10px; /* Espaço entre a linha e o texto */
+}
+
+.conteudo p {
+  text-align: justify; /* Alinha o texto justificado */
+  margin-bottom: 20px; /* Espaço inferior */
+}
+
+/* Ajustes para telas menores */
+@media screen and (max-width: 768px) {
+  .conteudo {
+    padding: 15px; /* Reduz espaçamento interno */
+    margin: 30px 10px; /* Reduz margem */
+    font-size: 15px; /* Reduz fonte */
+  }
+
+  .conteudo h2 {
+    font-size: 22px; /* Reduz tamanho do título */
+  }
+}
+
+/* === LANDING PAGE === */
+
+/* Logo principal da landing page */
+.logo-principal {
+  width: 100%; /* Ocupa toda a largura possível */
+  max-width: 600px; /* Mas não ultrapassa 600px */
+  height: auto; /* Mantém proporção */
+  display: block; /* Remove comportamento inline */
+  margin: 0 auto 20px; /* Centraliza e adiciona espaço inferior */
+}
+
+.landing {
+  text-align: center; /* Centraliza o texto */
+  padding: 40px 20px; /* Espaçamento interno */
+  color: #fff; /* Texto branco */
+}
+
+.destaque {
+  margin-bottom: 40px; /* Espaço inferior */
+  background-color: #1a1a1a; /* Fundo escuro */
+  padding: 40px 20px; /* Espaço interno */
+  border-radius: 12px; /* Cantos arredondados */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05); /* Sombra leve */
+}
+
+.destaque h2 {
+  font-size: 28px; /* Tamanho do título */
+  color: #ffcc33; /* Cor amarela */
+  margin-bottom: 15px; /* Espaço abaixo */
+}
+
+.destaque p {
+  font-size: 16px; /* Tamanho do texto */
+  margin-bottom: 20px; /* Espaço abaixo */
+}
+
+/* Botão principal */
+.botao {
+  background-color: #ffcc33; /* Fundo amarelo */
+  color: #000; /* Texto preto */
+  padding: 10px 25px; /* Espaçamento interno */
+  text-decoration: none; /* Remove sublinhado */
+  font-weight: bold; /* Texto em negrito */
+  border-radius: 6px; /* Cantos arredondados */
+  transition: background-color 0.3s; /* Animação suave */
+}
+
+.botao:hover {
+  background-color: #e6b800; /* Amarelo mais escuro no hover */
+}
+
+/* Título de seções de chamada */
+.secao-chamada h3 {
+  font-size: 20px; /* Tamanho do título */
+  margin-bottom: 20px; /* Espaço inferior */
+}
+
+/* Container de botões de links */
+.botoes-link {
+  display: flex; /* Flexbox */
+  flex-wrap: wrap; /* Quebra em várias linhas se necessário */
+  gap: 15px; /* Espaço entre botões */
+  justify-content: center; /* Centraliza horizontalmente */
+  margin-bottom: 40px; /* Espaço inferior */
+}
+
+/* Botões de links */
+.link-chamada {
+  background-color: #333; /* Fundo cinza */
+  color: white; /* Texto branco */
+  padding: 12px 20px; /* Espaço interno */
+  text-decoration: none; /* Remove sublinhado */
+  border-radius: 6px; /* Cantos arredondados */
+  font-weight: bold; /* Texto em negrito */
+  transition: background-color 0.3s; /* Animação suave */
+}
+
+.link-chamada:hover {
+  background-color: #555; /* Cinza mais claro no hover */
+}
+
+/* Ajuste no tamanho da logo */
+.logo-principal {
+  width: 200px; /* Largura fixa */
+  margin-bottom: 20px; /* Espaço inferior */
+}
+
+/* Galeria de imagens */
+.galeria {
+  padding: 40px 20px; /* Espaçamento interno */
+  text-align: center; /* Centraliza conteúdo */
+}
+
+.galeria-titulo {
+  color: #ffcc33; /* Cor amarela */
+  font-size: 24px; /* Tamanho da fonte */
+  margin-bottom: 25px; /* Espaço inferior */
+}
+
+.galeria-imagens {
+  display: flex; /* Flexbox */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  gap: 15px; /* Espaço entre imagens */
+  justify-content: center; /* Centraliza imagens */
+}
+
+.galeria-imagens img {
+  width: 200px; /* Largura fixa */
+  height: 130px; /* Altura fixa */
+  object-fit: cover; /* Corta e ajusta a imagem */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Sombra */
+  transition: transform 0.3s; /* Animação suave */
+}
+
+/* Convite final */
+.convite {
+  text-align: center; /* Centraliza conteúdo */
+  padding: 60px 20px; /* Espaçamento interno */
+  background-color: #1a1a1a; /* Fundo escuro */
+  margin-top: 50px; /* Espaço acima */
+  border-top: 1px solid #333; /* Linha superior */
+}
+
+.convite h3 {
+  color: #ffcc33; /* Cor amarela */
+  font-size: 24px; /* Tamanho da fonte */
+  margin-bottom: 20px; /* Espaço inferior */
+}
+
+.convite p {
+  font-size: 16px; /* Tamanho do texto */
+  color: #ccc; /* Texto cinza claro */
+  margin-bottom: 30px; /* Espaço inferior */
+  max-width: 700px; /* Limita largura */
+  margin-left: auto; /* Centraliza horizontalmente */
+  margin-right: auto; /* Centraliza horizontalmente */
+}
+
+/* === HISTÓRIA === */
+
+/* Seção da história geral */
+.historia {
+  text-decoration: none; /* Remove qualquer sublinhado de links */
+  padding: 40px 20px; /* Espaço interno */
+  max-width: 900px; /* Largura máxima */
+  margin: auto; /* Centraliza na tela */
+  text-align: justify; /* Justifica o texto */
+  color: #ccc; /* Cor de texto cinza claro */
+}
+
+.historia h3 {
+  color: #ffcc33; /* Cor amarela */
+  font-size: 26px; /* Tamanho do título */
+  margin-bottom: 15px; /* Espaço inferior */
+}
+
+/* === FILMES EM FOCO === */
+
+/* Container geral da seção de filmes */
+.filmes-foco {
+  padding: 40px 20px; /* Espaço interno */
+  max-width: 900px; /* Limite de largura */
+  margin: auto; /* Centraliza */
+}
+
+.filmes-foco h3 {
+  text-align: center; /* Centraliza o título */
+  font-size: 26px; /* Tamanho do título */
+  margin-bottom: 30px; /* Espaço abaixo */
+  color: #ffcc33; /* Cor amarela */
+}
+
+/* Cada filme individual */
+.filme {
+  display: flex; /* Layout em linha */
+  gap: 20px; /* Espaço entre imagem e texto */
+  margin-bottom: 30px; /* Espaço abaixo do filme */
+  background-color: #1a1a1a; /* Fundo escuro */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 15px; /* Espaço interno */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Sombra */
+}
+
+.filme img {
+  width: 160px; /* Largura fixa */
+  height: 100px; /* Altura fixa */
+  object-fit: cover; /* Ajusta a imagem cortando */
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+.filme h4 {
+  margin: 0; /* Remove margens padrão */
+  color: white; /* Cor branca para o título */
+}
+
+.filme p {
+  font-size: 15px; /* Tamanho do texto */
+  color: #ccc; /* Cor cinza claro */
+}
+
+/* === RESPONSIVIDADE === */
+@media screen and (max-width: 600px) {
+  .botao,
+  .link-chamada {
+    width: 100%; /* Botões ocupam toda a largura */
+    display: block; /* Cada botão em uma linha */
+  }
+}
+
+/* === PÁGINA INICIAL === */
+.pagina-inicial {
+  display: flex; /* Layout em linha */
+  flex-wrap: wrap; /* Permite que os blocos quebrem para a próxima linha */
+  justify-content: center; /* Centraliza os blocos */
+  gap: 30px; /* Espaço entre blocos */
+  padding: 40px 20px; /* Espaçamento interno */
+  background-color: #0d0d0d; /* Fundo preto */
+}
+
+/* Bloco individual de notícia na landing */
+.bloco-noticia {
+  background-color: #1a1a1a; /* Fundo escuro */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 30px 20px; /* Espaço interno */
+  width: 300px; /* Largura fixa */
+  text-align: center; /* Centraliza o texto */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra */
+  transition: transform 0.3s ease; /* Animação ao passar o mouse */
+}
+
+.bloco-noticia:hover {
+  transform: translateY(-5px); /* Leve elevação no hover */
+}
+
+.bloco-noticia h2 {
+  font-size: 22px; /* Tamanho do título */
+  margin-bottom: 15px; /* Espaço inferior */
+  color: #ffcc33; /* Cor amarela */
+}
+
+.bloco-noticia p {
+  font-size: 15px; /* Tamanho do texto */
+  color: #ccc; /* Cor cinza claro */
+  margin-bottom: 20px; /* Espaço inferior */
+}
+
+.botao-link {
+  background-color: #ffcc33; /* Fundo amarelo */
+  color: #000; /* Texto preto */
+  text-decoration: none; /* Remove sublinhado */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-weight: bold; /* Texto em negrito */
+  border-radius: 5px; /* Bordas arredondadas */
+  display: inline-block; /* Mantém formato de botão */
+  transition: background-color 0.3s; /* Animação suave */
+}
+
+.botao-link:hover {
+  background-color: #e6b800; /* Amarelo mais escuro no hover */
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .pagina-inicial {
+    flex-direction: column; /* Coloca blocos em coluna */
+    align-items: center; /* Centraliza os blocos */
+  }
+
+  .bloco-noticia {
+    width: 90%; /* Ocupa quase toda a largura */
+  }
+}
+
+/* === PÁGINA DE CONTATO === */
+.pagina-contato {
+  max-width: 600px; /* Largura máxima */
+  margin: 50px auto; /* Centraliza */
+  padding: 30px; /* Espaço interno */
+  background-color: #1a1a1a; /* Fundo escuro */
+  border-radius: 12px; /* Bordas arredondadas */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05); /* Sombra */
+  color: #e0e0e0; /* Texto claro */
+}
+
+.pagina-contato h2 {
+  text-align: center; /* Centraliza título */
+  color: #ffcc33; /* Amarelo */
+  margin-bottom: 20px; /* Espaço inferior */
+  font-size: 28px; /* Tamanho do título */
+}
+
+.pagina-contato p {
+  text-align: center; /* Centraliza */
+  margin-bottom: 30px; /* Espaço inferior */
+  font-size: 16px; /* Tamanho do texto */
+  color: #ccc; /* Texto cinza */
+}
+
+/* Formulário de contato */
+.form-contato {
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Organiza em coluna */
+  gap: 15px; /* Espaço entre campos */
+}
+
+.form-contato label {
+  font-weight: bold; /* Negrito */
+  color: #f2f2f2; /* Branco */
+}
+
+.form-contato input,
+.form-contato textarea {
+  padding: 10px; /* Espaço interno */
+  border-radius: 6px; /* Bordas arredondadas */
+  border: none; /* Remove borda padrão */
+  background-color: #2a2a2a; /* Fundo escuro */
+  color: white; /* Texto branco */
+  font-size: 15px; /* Tamanho do texto */
+}
+
+.form-contato textarea {
+  resize: vertical; /* Permite redimensionar apenas verticalmente */
+}
+
+.form-contato button {
+  background-color: #ffcc33; /* Fundo amarelo */
+  color: #000; /* Texto preto */
+  font-weight: bold; /* Negrito */
+  padding: 12px; /* Espaço interno */
+  border: none; /* Remove borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de clique */
+  transition: background-color 0.3s; /* Animação suave */
+}
+
+.form-contato button:hover {
+  background-color: #e6b800; /* Amarelo mais escuro no hover */
+}
+
+@media screen and (max-width: 600px) {
+  .pagina-contato {
+    margin: 30px 15px; /* Margem reduzida */
+    padding: 20px; /* Espaço interno reduzido */
+  }
+
+  .pagina-contato h2 {
+    font-size: 24px; /* Tamanho menor do título */
+  }
+}
+
+/* ===PÁGINA DE PREMIAÇÕES === */
+.premiacoes-container {
+  /* Container geral da página de premiações */
+  max-width: 1000px; /* Define largura máxima de 1000px */
+  margin: 50px auto; /* Centraliza e adiciona margem vertical de 50px */
+  padding: 0 20px; /* Espaçamento interno nas laterais */
+}
+
+.premiacoes-container h1 {
+  /* Estilo para o título principal */
+  text-align: center; /* Centraliza o texto */
+  font-size: 30px; /* Define tamanho da fonte */
+  color: #ffcc33; /* Cor amarela */
+  margin-bottom: 40px; /* Espaço abaixo do título */
+}
+
+/* Cartões das premiações */
+.cartao-premio {
+  /* Cada bloco de premiação */
+  background-color: #1a1a1a; /* Fundo escuro */
+  border-left: 6px solid #ffcc33; /* Borda lateral amarela à esquerda */
+  border-radius: 10px; /* Cantos arredondados */
+  padding: 20px; /* Espaçamento interno */
+  margin-bottom: 30px; /* Espaço abaixo de cada cartão */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05); /* Sombra leve */
+  transition: background-color 0.3s; /* Transição suave ao mudar cor de fundo */
+}
+
+.cartao-premio h2 {
+  /* Títulos dos cartões */
+  color: #fff; /* Cor branca */
+  font-size: 22px; /* Tamanho da fonte */
+  margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+.cartao-premio p {
+  /* Texto descritivo */
+  color: #ccc; /* Cor cinza claro */
+  font-size: 16px; /* Tamanho da fonte */
+  line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+.cartao-premio img {
+  /* Imagens dentro dos cartões */
+  width: 100%; /* Ocupa toda a largura do cartão */
+  height: auto; /* Mantém proporção da imagem */
+  margin-top: 15px; /* Espaço acima da imagem */
+  border-radius: 8px; /* Cantos arredondados */
+  object-fit: cover; /* Ajusta imagem para cobrir o espaço */
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+  /* Ajustes para telas menores que 700px */
+  .premiacoes-container {
+    padding: 0 15px; /* Reduz padding lateral */
+  }
+
+  .cartao-premio h2 {
+    font-size: 20px; /* Reduz tamanho do título */
+  }
+
+  .cartao-premio p {
+    font-size: 15px; /* Reduz tamanho do texto */
+  }
+}
+
+.form-termos {
+  /* Container do formulário de termos */
+  margin-top: 20px; /* Espaço acima */
+  padding: 15px; /* Espaço interno */
+  background-color: #1a1a1a; /* Fundo escuro */
+  border-radius: 10px; /* Cantos arredondados */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.03); /* Sombra leve */
+}
+
+.form-termos label {
+  /* Texto dos labels */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #ccc; /* Cor cinza claro */
+}
+
+.form-termos input[type="checkbox"] {
+  /* Caixa de seleção */
+  margin-right: 10px; /* Espaço à direita */
+  transform: scale(1.2); /* Aumenta o tamanho */
+}
+
+.form-termos button {
+  /* Botão do formulário */
+  margin-top: 15px; /* Espaço acima */
+  background-color: #ffcc33; /* Fundo amarelo */
+  color: #000; /* Texto preto */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-weight: bold; /* Negrito */
+  border: none; /* Remove borda */
+  border-radius: 6px; /* Cantos arredondados */
+  cursor: pointer; /* Cursor de clique */
+  transition: background-color 0.3s; /* Transição suave */
+}
+
+.form-termos button:hover {
+  /* Efeito ao passar o mouse */
+  background-color: #e6b800; /* Amarelo mais escuro */
+}
+
+/* === HISTÓRIA - LINHA DO TEMPO EM ZIG-ZAG === */
+.timeline-container {
+  /* Container geral da timeline */
+  max-width: 1000px; /* Largura máxima */
+  margin: 50px auto; /* Centraliza com margem vertical */
+  padding: 20px; /* Espaçamento interno */
+  position: relative; /* Necessário para posicionar linha central */
+}
+
+.titulo-historia {
+  /* Título da seção */
+  text-align: center; /* Centraliza */
+  color: #ffcc33; /* Amarelo */
+  margin-bottom: 60px; /* Espaço inferior */
+  font-size: 30px; /* Tamanho da fonte */
+  border-bottom: 2px solid #ffcc33; /* Linha abaixo do título */
+  display: inline-block; /* Linha acompanha largura do texto */
+}
+
+.timeline-container::before {
+  /* Linha central */
+  content: ""; /* Elemento vazio */
+  position: absolute; /* Posicionamento absoluto */
+  top: 0; /* Começa no topo */
+  left: 50%; /* Centraliza horizontalmente */
+  width: 4px; /* Largura da linha */
+  height: 100%; /* Altura total */
+  background-color: #ffcc33; /* Amarelo */
+  transform: translateX(-50%); /* Ajusta centralização */
+}
+
+.timeline-item {
+  /* Bloco de evento da timeline */
+  width: 46%; /* Ocupa menos da metade */
+  background-color: #1a1a1a; /* Fundo escuro */
+  color: #ccc; /* Texto cinza */
+  padding: 20px; /* Espaço interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  position: relative; /* Necessário para posicionamento interno */
+  margin-bottom: 50px; /* Espaço inferior */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05); /* Sombra leve */
+}
+
+.timeline-item.left {
+  /* Itens à esquerda */
+  float: left; /* Alinha à esquerda */
+  clear: both; /* Evita sobreposição */
+}
+
+.timeline-item.right {
+  /* Itens à direita */
+  float: right; /* Alinha à direita */
+  clear: both; /* Evita sobreposição */
+}
+
+/* Evita overflow nas laterais */
+.timeline-container::after {
+  content: ""; /* Elemento vazio */
+  display: table; /* Garante espaçamento */
+  clear: both; /* Limpa floats */
+}
+
+/* Responsivo para celular */
+@media screen and (max-width: 768px) {
+  .timeline-container::before {
+    left: 20px; /* Move linha para a esquerda */
+  }
+
+  .timeline-item {
+    width: 100%; /* Ocupa toda largura */
+    margin-left: 40px; /* Espaço para linha */
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    float: none; /* Remove alinhamento lateral */
+  }
+
+  .timeline-dot {
+    left: 20px; /* Move ponto para esquerda */
+    transform: none; /* Remove centralização */
+  }
+}
+
+.timeline-container {
+  /* Repetição do container da timeline */
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  position: relative;
+}
+
+.titulo-box {
+  /* Caixa do título */
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.titulo-historia {
+  /* Estilo do título */
+  font-size: 30px;
+  color: #ffcc33;
+  display: inline-block;
+  border-bottom: 2px solid #ffcc33;
+  padding-bottom: 5px;
+}
+
+/* Linha central da timeline */
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 100px; /* Começa abaixo do título */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: calc(100% - 100px); /* Ajusta para espaço do título */
+  background-color: #ffcc33;
+  z-index: 0; /* Fica atrás do conteúdo */
+}
+
+/* Timeline items */
+.timeline-item {
+  width: 46%;
+  background-color: #1a1a1a;
+  color: #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 50px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  z-index: 1; /* Fica acima da linha */
+}
+
+.timeline-item.left {
+  float: left;
+  clear: both;
+}
+
+.timeline-item.right {
+  float: right;
+  clear: both;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .timeline-container::before {
+    left: 20px;
+    top: 60px;
+    height: calc(100% - 60px);
+  }
+
+  .timeline-item {
+    width: 100%;
+    margin-left: 40px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    float: none;
+  }
+}
