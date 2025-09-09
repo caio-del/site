@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutri Track - Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">Nutri Track</div>
+      <h2>Cadastro</h2>
+
+      <div class="campo">
+        <label for="usuario">Usuário</label>
+        <input type="text" id="usuario" placeholder="Digite seu usuário" />
+      </div>
+
+      <div class="campo">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="seunome@email.com" />
+      </div>
+
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" />
+      </div>
+
+      <button id="cadastrarBtn">Cadastrar</button>
+      <p class="esqueci">Já tem conta? <a href="login.html">Faça login</a></p>
+    </div>
+
+    <script>
+      document
+        .getElementById("cadastrarBtn")
+        .addEventListener("click", function () {
+          let usuario = document.getElementById("usuario").value;
+          let email = document.getElementById("email").value;
+          let senha = document.getElementById("senha").value;
+
+          if (usuario && email && senha) {
+            // salvar no localStorage
+            localStorage.setItem("usuario", usuario);
+            localStorage.setItem("email", email);
+            localStorage.setItem("senha", senha);
+
+            alert("Cadastro realizado com sucesso!");
+            window.location.href = "login.html";
+          } else {
+            alert("Por favor, preencha todos os campos.");
+          }
+        });
+    </script>
+  </body>
+</html>

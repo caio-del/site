@@ -1,0 +1,94 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d; /* preto de fundo */
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00ff88; /* verde principal */
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      color: #00cc66;
+    }
+
+    .campo {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #b3ffcc;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background-color: #262626;
+      color: #e0e0e0;
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border: 2px solid #00ff88;
+    }
+
+    button {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #00cc66;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00ff88;
+      color: #000;
+    }
+
+    .esqueci {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #66ffb2;
+      cursor: pointer;
+    }
+
+    .esqueci:hover {
+      text-decoration: underline;
+    }

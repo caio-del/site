@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trocar Senha - Cine BR</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="logo">Cine BR</h1>
+      <span class="usuario-header" id="usuarioHeader"></span>
+    </header>
+
+    <main class="espaco">
+      <h2 class="espaco2" data-aos="fade-in" data-aos-duration="1000">Trocar Senha</h2>
+      <section class="login" data-aos="fade-in" data-aos-duration="1000">
+        <div class="campo">
+          <p class="conteudo_usuario">Digite seu Email</p>
+          <input
+            type="email"
+            id="emailTroca"
+            placeholder="fulanodetal@gmail.com"
+          />
+        </div>
+
+        <div class="campo">
+          <p class="conteudo_usuario">Nova Senha</p>
+          <input
+            type="password"
+            id="novaSenha"
+            placeholder="Digite a nova senha"
+          />
+        </div>
+
+        <button onclick="trocarSenha()">Alterar Senha</button>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <p>&copy; 2025 Cine BR. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Caio Cavalcante</p>
+      </div>
+    </footer>
+
+    <script>
+      function trocarSenha() {
+        const email = document.getElementById("emailTroca").value;
+        const novaSenha = document.getElementById("novaSenha").value;
+
+        // Recupera o email salvo no cadastro
+        const emailSalvo = localStorage.getItem("email");
+
+        if (email === emailSalvo) {
+          // Atualiza apenas a senha no localStorage
+          localStorage.setItem("senha", novaSenha);
+          alert("Senha alterada com sucesso! Faça login novamente.");
+          window.location.href = "login.html";
+        } else {
+          alert("Email não encontrado. Tente novamente.");
+        }
+      }
+      (function () {
+        var nome = localStorage.getItem("usuario");
+        var el = document.getElementById("usuarioHeader");
+        if (el && nome) {
+          el.textContent = nome;
+        }
+      })();
+    </script>
+
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+
+  </body>
+</html>

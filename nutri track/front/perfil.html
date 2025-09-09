@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Track - Perfil</title>
+  <link rel="stylesheet" href="perfil.css ">
+</head>
+<body>
+  <div class="perfil-container">
+    <h2>Perfil do Usuário</h2>
+
+    <div class="campo">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" placeholder="Seu nome">
+    </div>
+
+    <div class="campo">
+      <label for="idade">Idade</label>
+      <input type="number" id="idade" placeholder="Ex: 25">
+    </div>
+
+    <div class="campo">
+      <label for="peso">Peso (kg)</label>
+      <input type="number" id="peso" placeholder="Ex: 70">
+    </div>
+
+    <div class="campo">
+      <label for="altura">Altura (cm)</label>
+      <input type="number" id="altura" placeholder="Ex: 175">
+    </div>
+
+    <div class="campo">
+      <label for="sexo">Sexo</label>
+      <select id="sexo">
+        <option value="">Selecione</option>
+        <option value="M">Masculino</option>
+        <option value="F">Feminino</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="objetivo">Objetivo</label>
+      <select id="objetivo">
+        <option value="">Selecione</option>
+        <option value="emagrecer">Emagrecer</option>
+        <option value="manter">Manter peso</option>
+        <option value="ganhar">Ganhar massa</option>
+      </select>
+    </div>
+
+    <button onclick="salvarPerfil()">Salvar Perfil</button>
+    <p class="msg" id="mensagem"></p>
+  </div>
+
+  <script>
+    function salvarPerfil() {
+      const perfil = {
+        nome: document.getElementById("nome").value,
+        idade: document.getElementById("idade").value,
+        peso: document.getElementById("peso").value,
+        altura: document.getElementById("altura").value,
+        sexo: document.getElementById("sexo").value,
+        objetivo: document.getElementById("objetivo").value
+      };
+
+      // Salva no localStorage
+      localStorage.setItem("perfilUsuario", JSON.stringify(perfil));
+
+      document.getElementById("mensagem").innerText = "Perfil salvo com sucesso!";
+    }
+
+    // Se já existir perfil salvo, carrega nos campos
+    window.onload = function() {
+      const dados = localStorage.getItem("perfilUsuario");
+      if (dados) {
+        const perfil = JSON.parse(dados);
+        document.getElementById("nome").value = perfil.nome;
+        document.getElementById("idade").value = perfil.idade;
+        document.getElementById("peso").value = perfil.peso;
+        document.getElementById("altura").value = perfil.altura;
+        document.getElementById("sexo").value = perfil.sexo;
+        document.getElementById("objetivo").value = perfil.objetivo;
+      }
+    }
+  </script>
+</body>
+</html>

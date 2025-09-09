@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Track - Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Nutri Track</div>
+    <h2>Login</h2>
+
+    <div class="campo">
+      <label for="emailLogin">Email</label>
+      <input type="email" id="emailLogin" placeholder="Digite seu email">
+    </div>
+
+    <div class="campo">
+      <label for="senhaLogin">Senha</label>
+      <input type="password" id="senhaLogin" placeholder="Digite sua senha">
+    </div>
+
+    <button id="loginBtn">Entrar</button>
+  </div>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", function() {
+      let emailLogin = document.getElementById("emailLogin").value;
+      let senhaLogin = document.getElementById("senhaLogin").value;
+
+      let emailCadastrado = localStorage.getItem("email");
+      let senhaCadastrada = localStorage.getItem("senha");
+
+      if (emailLogin === emailCadastrado && senhaLogin === senhaCadastrada) {
+        window.location.href = "perfil.html";
+      } else {
+        alert("Email ou senha incorretos!");
+      }
+    });
+  </script>
+</body>
+</html>

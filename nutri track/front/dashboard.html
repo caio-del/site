@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutri Track - Dashboard</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #000;
+        color: #22c55e;
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      aside {
+        width: 220px;
+        background: #0a0a0a;
+        padding: 20px;
+        border-right: 2px solid #14532d;
+      }
+      aside h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #22c55e;
+      }
+      aside nav button {
+        display: block;
+        width: 100%;
+        background: transparent;
+        border: none;
+        color: #22c55e;
+        text-align: left;
+        font-size: 1rem;
+        margin: 10px 0;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+      }
+      aside nav button:hover {
+        background: #14532d;
+      }
+
+      /* Main */
+      main {
+        flex: 1;
+        padding: 20px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      header h2 {
+        font-size: 1.5rem;
+      }
+      header button {
+        background: #22c55e;
+        border: none;
+        padding: 10px 15px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #000;
+      }
+      header button:hover {
+        background: #16a34a;
+      }
+
+      /* Cards */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      .card {
+        background: #111;
+        border: 1px solid #14532d;
+        border-radius: 12px;
+        padding: 15px;
+      }
+      .card p {
+        font-size: 0.9rem;
+        margin: 0;
+        color: #9ca3af;
+      }
+      .card h3 {
+        font-size: 1.5rem;
+        margin: 5px 0;
+      }
+      .progress {
+        width: 100%;
+        height: 8px;
+        background: #222;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 8px;
+      }
+      .progress div {
+        height: 100%;
+        background: #22c55e;
+      }
+
+      /* Gráfico */
+      .chart {
+        background: #111;
+        border: 1px solid #14532d;
+        border-radius: 12px;
+        padding: 15px;
+      }
+      .chart h3 {
+        margin-bottom: 10px;
+      }
+      .bar {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+      }
+      .bar span {
+        width: 120px;
+      }
+      .bar .bar-track {
+        flex: 1;
+        height: 20px;
+        background: #222;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .bar .bar-fill {
+        height: 100%;
+        background: #22c55e;
+        text-align: right;
+        padding-right: 5px;
+        color: #000;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside>
+      <h1>Nutri Track</h1>
+      <nav>
+        <button>🍽️ Refeições</button>
+        <button>🏃 Atividades</button>
+        <button>🔥 Metas</button>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main>
+      <header>
+        <h2>Dashboard</h2>
+        <button>+ Adicionar Refeição</button>
+      </header>
+
+      <!-- Cards -->
+      <div class="cards">
+        <div class="card">
+          <p>Calorias Consumidas</p>
+          <h3 id="calorias">1450 kcal</h3>
+          <div class="progress"><div style="width: 65%"></div></div>
+        </div>
+        <div class="card">
+          <p>Meta de Água</p>
+          <h3 id="agua">1.8 L / 2.5 L</h3>
+          <div class="progress"><div style="width: 72%"></div></div>
+        </div>
+        <div class="card">
+          <p>Passos Hoje</p>
+          <h3 id="passos">8320</h3>
+          <div class="progress"><div style="width: 83%"></div></div>
+        </div>
+      </div>
+
+      <!-- Gráfico -->
+      <div class="chart">
+        <h3>Macronutrientes</h3>
+        <div class="bar">
+          <span>Proteínas</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 75%">75%</div>
+          </div>
+        </div>
+        <div class="bar">
+          <span>Carboidratos</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 50%">50%</div>
+          </div>
+        </div>
+        <div class="bar">
+          <span>Gorduras</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 40%">40%</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Exemplo: atualizar dinamicamente os valores
+      document.querySelector("header button").addEventListener("click", () => {
+        alert("Função de adicionar refeição em desenvolvimento!");
+      });
+    </script>
+  </body>
+</html>
