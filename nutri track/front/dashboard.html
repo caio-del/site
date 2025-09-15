@@ -139,6 +139,136 @@
         font-size: 0.8rem;
         font-weight: bold;
       }
+
+      /* Modais */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-content {
+        background-color: #111;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #14532d;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 500px;
+        color: #22c55e;
+      }
+
+      .close {
+        color: #9ca3af;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover {
+        color: #22c55e;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #9ca3af;
+        font-size: 0.9rem;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 10px;
+        background: #222;
+        border: 1px solid #14532d;
+        border-radius: 6px;
+        color: #22c55e;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #22c55e;
+        box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      /* Refeições */
+      .meals-section {
+        margin-top: 20px;
+      }
+
+      .meal-item {
+        background: #0a0a0a;
+        border: 1px solid #14532d;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .meal-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .meal-info strong {
+        color: #22c55e;
+        font-size: 1rem;
+      }
+
+      .meal-info span {
+        color: #9ca3af;
+        font-size: 0.9rem;
+      }
+
+      .meal-macros {
+        display: flex;
+        gap: 15px;
+        font-size: 0.9rem;
+      }
+
+      .meal-macros span {
+        color: #22c55e;
+        font-weight: bold;
+      }
+
+      @media (max-width: 600px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .meal-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .meal-macros {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -148,6 +278,9 @@
       <nav>
         <button>🍽️ Refeições</button>
         <button>🏃 Atividades</button>
+        <button onclick="window.location.href='calculadora.html'">
+          🧮 Calculadora
+        </button>
         <button>🔥 Metas</button>
       </nav>
     </aside>
@@ -202,11 +335,259 @@
       </div>
     </main>
 
+    <!-- Modal para adicionar alimento -->
+    <div id="addFoodModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>🍎 Adicionar Alimento</h3>
+        <form id="addFoodForm">
+          <div class="form-group">
+            <label for="foodName">Nome do Alimento</label>
+            <input type="text" id="foodName" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="caloriesPerGram">Calorias por grama</label>
+              <input type="number" id="caloriesPerGram" step="0.01" required />
+            </div>
+            <div class="form-group">
+              <label for="proteinPerGram">Proteína por grama</label>
+              <input type="number" id="proteinPerGram" step="0.001" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="carbsPerGram">Carboidratos por grama</label>
+              <input type="number" id="carbsPerGram" step="0.001" required />
+            </div>
+            <div class="form-group">
+              <label for="fatPerGram">Gorduras por grama</label>
+              <input type="number" id="fatPerGram" step="0.001" required />
+            </div>
+          </div>
+          <button type="submit">Adicionar Alimento</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal para adicionar refeição -->
+    <div id="addMealModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>🍽️ Adicionar Refeição</h3>
+        <form id="addMealForm">
+          <div class="form-group">
+            <label for="mealFood">Alimento</label>
+            <select id="mealFood" required>
+              <option value="">Selecione um alimento</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mealQuantity">Quantidade (gramas)</label>
+            <input type="number" id="mealQuantity" step="0.1" required />
+          </div>
+          <div class="form-group">
+            <label for="mealType">Tipo de Refeição</label>
+            <select id="mealType" required>
+              <option value="café da manhã">Café da Manhã</option>
+              <option value="lanche">Lanche</option>
+              <option value="almoço">Almoço</option>
+              <option value="lanche da tarde">Lanche da Tarde</option>
+              <option value="jantar">Jantar</option>
+              <option value="ceia">Ceia</option>
+            </select>
+          </div>
+          <button type="submit">Adicionar Refeição</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../back/foodLibrary.js"></script>
     <script>
-      // Exemplo: atualizar dinamicamente os valores
-      document.querySelector("header button").addEventListener("click", () => {
-        alert("Função de adicionar refeição em desenvolvimento!");
+      // Inicializar dados de exemplo
+      NutriTrack.inicializarDadosExemplo();
+
+      // Elementos do DOM
+      const botaoAdicionarRefeicao = document.querySelector("header button");
+      const modalAdicionarAlimento = document.getElementById("addFoodModal");
+      const modalAdicionarRefeicao = document.getElementById("addMealModal");
+      const formularioAdicionarAlimento =
+        document.getElementById("addFoodForm");
+      const formularioAdicionarRefeicao =
+        document.getElementById("addMealForm");
+
+      // Event listeners
+      botaoAdicionarRefeicao.addEventListener("click", () => {
+        modalAdicionarRefeicao.style.display = "block";
+        carregarOpcoesAlimentos();
       });
+
+      // Adicionar botão para biblioteca de alimentos
+      const sidebar = document.querySelector("aside nav");
+      const botaoBiblioteca = document.createElement("button");
+      botaoBiblioteca.innerHTML = "🍎 Biblioteca";
+      botaoBiblioteca.addEventListener("click", () => {
+        modalAdicionarAlimento.style.display = "block";
+      });
+      sidebar.appendChild(botaoBiblioteca);
+
+      // Fechar modais
+      document.querySelectorAll(".close").forEach((botaoFechar) => {
+        botaoFechar.addEventListener("click", () => {
+          modalAdicionarAlimento.style.display = "none";
+          modalAdicionarRefeicao.style.display = "none";
+        });
+      });
+
+      // Adicionar alimento
+      formularioAdicionarAlimento.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nome = document.getElementById("foodName").value;
+        const calorias = document.getElementById("caloriesPerGram").value;
+        const proteinas = document.getElementById("proteinPerGram").value;
+        const carboidratos = document.getElementById("carbsPerGram").value;
+        const gorduras = document.getElementById("fatPerGram").value;
+
+        NutriTrack.adicionarAlimento(
+          nome,
+          calorias,
+          proteinas,
+          carboidratos,
+          gorduras
+        );
+        alert("Alimento adicionado com sucesso!");
+        formularioAdicionarAlimento.reset();
+        modalAdicionarAlimento.style.display = "none";
+        carregarOpcoesAlimentos();
+      });
+
+      // Adicionar refeição
+      formularioAdicionarRefeicao.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const idAlimento = parseInt(document.getElementById("mealFood").value);
+        const quantidade = parseFloat(
+          document.getElementById("mealQuantity").value
+        );
+        const tipoRefeicao = document.getElementById("mealType").value;
+
+        const refeicao = NutriTrack.adicionarRefeicao(
+          idAlimento,
+          quantidade,
+          tipoRefeicao
+        );
+        if (refeicao) {
+          alert("Refeição adicionada com sucesso!");
+          formularioAdicionarRefeicao.reset();
+          modalAdicionarRefeicao.style.display = "none";
+          atualizarDashboard();
+        }
+      });
+
+      // Carregar opções de alimentos
+      function carregarOpcoesAlimentos() {
+        const select = document.getElementById("mealFood");
+        select.innerHTML = '<option value="">Selecione um alimento</option>';
+
+        const alimentos = NutriTrack.obterTodosAlimentos();
+        alimentos.forEach((alimento) => {
+          const option = document.createElement("option");
+          option.value = alimento.id;
+          option.textContent = `${alimento.nome} (${alimento.caloriasPorGrama} kcal/g)`;
+          select.appendChild(option);
+        });
+      }
+
+      // Atualizar dashboard
+      function atualizarDashboard() {
+        const progresso = NutriTrack.calcularProgresso();
+        const totaisHoje = NutriTrack.calcularTotaisHoje();
+        const refeicoesHoje = NutriTrack.obterRefeicoesHoje();
+
+        if (progresso) {
+          // Atualizar calorias
+          document.getElementById("calorias").textContent = `${Math.round(
+            totaisHoje.calorias
+          )} / ${Math.round(progresso.calorias.meta)} kcal`;
+
+          const progressoCalorias = document.querySelector(
+            ".card .progress div"
+          );
+          progressoCalorias.style.width = `${Math.min(
+            progresso.calorias.percentual,
+            100
+          )}%`;
+
+          // Atualizar macronutrientes
+          atualizarBarraMacro("proteinas", progresso.proteinas);
+          atualizarBarraMacro("carboidratos", progresso.carboidratos);
+          atualizarBarraMacro("gorduras", progresso.gorduras);
+        }
+
+        // Atualizar lista de refeições do dia
+        atualizarListaRefeicoes(refeicoesHoje);
+      }
+
+      function atualizarBarraMacro(tipoMacro, dadosMacro) {
+        const preenchimentoBarra = document.querySelector(
+          `.bar:nth-child(${obterIndiceMacro(tipoMacro)}) .bar-fill`
+        );
+        if (preenchimentoBarra) {
+          preenchimentoBarra.style.width = `${Math.min(
+            dadosMacro.percentual,
+            100
+          )}%`;
+          preenchimentoBarra.textContent = `${dadosMacro.percentual}%`;
+        }
+      }
+
+      function obterIndiceMacro(tipoMacro) {
+        const indices = { proteinas: 1, carboidratos: 2, gorduras: 3 };
+        return indices[tipoMacro] || 1;
+      }
+
+      function atualizarListaRefeicoes(refeicoes) {
+        // Criar seção de refeições se não existir
+        let secaoRefeicoes = document.querySelector(".meals-section");
+        if (!secaoRefeicoes) {
+          secaoRefeicoes = document.createElement("div");
+          secaoRefeicoes.className = "meals-section chart";
+          secaoRefeicoes.innerHTML = `
+            <h3>🍽️ Refeições de Hoje</h3>
+            <div id="mealsList"></div>
+          `;
+          document.querySelector("main").appendChild(secaoRefeicoes);
+        }
+
+        const listaRefeicoes = document.getElementById("mealsList");
+        listaRefeicoes.innerHTML = "";
+
+        if (refeicoes.length === 0) {
+          listaRefeicoes.innerHTML =
+            "<p style='text-align: center; color: #9ca3af;'>Nenhuma refeição registrada hoje</p>";
+          return;
+        }
+
+        refeicoes.forEach((refeicao) => {
+          const divRefeicao = document.createElement("div");
+          divRefeicao.className = "meal-item";
+          divRefeicao.innerHTML = `
+            <div class="meal-info">
+              <strong>${refeicao.nomeAlimento}</strong>
+              <span>${refeicao.quantidade}g - ${refeicao.tipoRefeicao}</span>
+            </div>
+            <div class="meal-macros">
+              <span>${Math.round(refeicao.calorias)} kcal</span>
+              <span>P: ${refeicao.proteinas.toFixed(1)}g</span>
+              <span>C: ${refeicao.carboidratos.toFixed(1)}g</span>
+              <span>G: ${refeicao.gorduras.toFixed(1)}g</span>
+            </div>
+          `;
+          listaRefeicoes.appendChild(divRefeicao);
+        });
+      }
+
+      // Inicializar dashboard
+      atualizarDashboard();
     </script>
   </body>
 </html>

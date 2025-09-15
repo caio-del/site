@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #22c55e;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #111;
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid #14532d;
+}
+
+h1 {
+  text-align: center;
+  color: #22c55e;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.form-section {
+  background: #0a0a0a;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #14532d;
+}
+
+.form-section h3 {
+  color: #22c55e;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: #9ca3af;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  background: #222;
+  border: 1px solid #14532d;
+  color: #22c55e;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+}
+
+button {
+  background: #22c55e;
+  border: none;
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+.results {
+  background: #0a0a0a;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #14532d;
+  display: none;
+}
+
+.results h3 {
+  color: #22c55e;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.macro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.macro-card {
+  background: #111;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #14532d;
+}
+
+.macro-card h4 {
+  color: #22c55e;
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+}
+
+.macro-card .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #22c55e;
+}
+
+.macro-card .unit {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.calorie-info {
+  background: #111;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #14532d;
+}
+
+.calorie-info h4 {
+  color: #22c55e;
+  margin: 0 0 10px 0;
+}
+
+.calorie-info .main-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #22c55e;
+}
+
+.error {
+  background: #dc2626;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.info-text {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .macro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
