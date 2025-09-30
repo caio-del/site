@@ -73,6 +73,29 @@ function obterTodosAlimentos() {
   return obterAlimentos();
 }
 
+// Apagar alimento por ID
+function apagarAlimento(id) {
+  const alimentos = obterAlimentos();
+  const indice = alimentos.findIndex((alimento) => alimento.id === id);
+
+  if (indice === -1) {
+    return false; // Alimento não encontrado
+  }
+
+  // Remover o alimento
+  alimentos.splice(indice, 1);
+  salvarAlimentos(alimentos);
+
+  // Também remover refeições que usam este alimento
+  const refeicoes = obterRefeicoes();
+  const refeicoesFiltradas = refeicoes.filter(
+    (refeicao) => refeicao.idAlimento !== id
+  );
+  salvarRefeicoes(refeicoesFiltradas);
+
+  return true; // Alimento removido com sucesso
+}
+
 // Buscar alimento por nome
 function buscarAlimento(consulta) {
   const alimentos = obterAlimentos();
@@ -243,6 +266,7 @@ function inicializarDadosExemplo() {
 window.NutriTrack = {
   adicionarAlimento,
   obterTodosAlimentos,
+  apagarAlimento,
   buscarAlimento,
   adicionarRefeicao,
   obterRefeicoesHoje,

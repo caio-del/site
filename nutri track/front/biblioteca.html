@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutri Track - Biblioteca de Alimentos</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #000;
+        color: #22c55e;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #14532d;
+      }
+
+      header h1 {
+        font-size: 2rem;
+        margin: 0;
+      }
+
+      .back-btn {
+        background: #22c55e;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #000;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .back-btn:hover {
+        background: #16a34a;
+      }
+
+      .add-food-btn {
+        background: #22c55e;
+        border: none;
+        padding: 12px 24px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #000;
+        font-size: 1rem;
+      }
+
+      .add-food-btn:hover {
+        background: #16a34a;
+      }
+
+      .search-section {
+        margin-bottom: 30px;
+      }
+
+      .search-input {
+        width: 100%;
+        max-width: 400px;
+        padding: 12px;
+        background: #222;
+        border: 1px solid #14532d;
+        border-radius: 8px;
+        color: #22c55e;
+        font-size: 1rem;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: #22c55e;
+        box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+      }
+
+      .foods-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .food-card {
+        background: #111;
+        border: 1px solid #14532d;
+        border-radius: 12px;
+        padding: 20px;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .food-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+      }
+
+      .food-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+      }
+
+      .food-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #22c55e;
+        margin: 0;
+      }
+
+      .delete-btn {
+        background: #dc2626;
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .delete-btn:hover {
+        background: #b91c1c;
+      }
+
+      .food-macros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .macro-item {
+        background: #0a0a0a;
+        padding: 10px;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      .macro-label {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        margin-bottom: 4px;
+      }
+
+      .macro-value {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #22c55e;
+      }
+
+      .food-info {
+        font-size: 0.9rem;
+        color: #9ca3af;
+        text-align: center;
+      }
+
+      .no-foods {
+        text-align: center;
+        color: #9ca3af;
+        font-size: 1.1rem;
+        padding: 40px;
+        background: #111;
+        border: 1px solid #14532d;
+        border-radius: 12px;
+      }
+
+      /* Modal para adicionar alimento */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-content {
+        background-color: #111;
+        margin: 5% auto;
+        padding: 30px;
+        border: 1px solid #14532d;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 500px;
+        color: #22c55e;
+      }
+
+      .close {
+        color: #9ca3af;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover {
+        color: #22c55e;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #9ca3af;
+        font-size: 0.9rem;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px;
+        background: #222;
+        border: 1px solid #14532d;
+        border-radius: 6px;
+        color: #22c55e;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #22c55e;
+        box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .modal button[type="submit"] {
+        background: #22c55e;
+        border: none;
+        color: #000;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .modal button[type="submit"]:hover {
+        background: #16a34a;
+      }
+
+      @media (max-width: 600px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .foods-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .food-macros {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🍎 Biblioteca de Alimentos</h1>
+        <div>
+          <a href="dashboard.html" class="back-btn">← Voltar ao Dashboard</a>
+          <button class="add-food-btn" onclick="abrirModalAdicionar()">
+            + Adicionar Alimento
+          </button>
+        </div>
+      </header>
+
+      <div class="search-section">
+        <input
+          type="text"
+          class="search-input"
+          id="searchInput"
+          placeholder="🔍 Buscar alimentos..."
+          onkeyup="filtrarAlimentos()"
+        />
+      </div>
+
+      <div class="foods-grid" id="foodsGrid">
+        <!-- Alimentos serão carregados aqui -->
+      </div>
+    </div>
+
+    <!-- Modal para adicionar alimento -->
+    <div id="addFoodModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="fecharModalAdicionar()">&times;</span>
+        <h3>🍎 Adicionar Novo Alimento</h3>
+        <form id="addFoodForm">
+          <div class="form-group">
+            <label for="foodName">Nome do Alimento</label>
+            <input type="text" id="foodName" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="caloriesPerGram">Calorias por grama</label>
+              <input type="number" id="caloriesPerGram" step="0.01" required />
+            </div>
+            <div class="form-group">
+              <label for="proteinPerGram">Proteína por grama</label>
+              <input type="number" id="proteinPerGram" step="0.001" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="carbsPerGram">Carboidratos por grama</label>
+              <input type="number" id="carbsPerGram" step="0.001" required />
+            </div>
+            <div class="form-group">
+              <label for="fatPerGram">Gorduras por grama</label>
+              <input type="number" id="fatPerGram" step="0.001" required />
+            </div>
+          </div>
+          <button type="submit">Adicionar Alimento</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../back/foodLibrary.js"></script>
+    <script>
+      // Inicializar dados de exemplo
+      NutriTrack.inicializarDadosExemplo();
+
+      // Carregar alimentos
+      function carregarAlimentos() {
+        const alimentos = NutriTrack.obterTodosAlimentos();
+        const grid = document.getElementById("foodsGrid");
+
+        if (alimentos.length === 0) {
+          grid.innerHTML = `
+            <div class="no-foods">
+              <p>Nenhum alimento cadastrado ainda.</p>
+              <p>Clique em "Adicionar Alimento" para começar!</p>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = alimentos
+          .map(
+            (alimento) => `
+          <div class="food-card" data-name="${alimento.nome.toLowerCase()}">
+            <div class="food-header">
+              <h3 class="food-name">${alimento.nome}</h3>
+              <button class="delete-btn" onclick="confirmarExclusao(${
+                alimento.id
+              }, '${alimento.nome}')">
+                🗑️
+              </button>
+            </div>
+            <div class="food-macros">
+              <div class="macro-item">
+                <div class="macro-label">Calorias</div>
+                <div class="macro-value">${
+                  alimento.caloriasPorGrama
+                } kcal/g</div>
+              </div>
+              <div class="macro-item">
+                <div class="macro-label">Proteínas</div>
+                <div class="macro-value">${alimento.proteinasPorGrama}g</div>
+              </div>
+              <div class="macro-item">
+                <div class="macro-label">Carboidratos</div>
+                <div class="macro-value">${alimento.carboidratosPorGrama}g</div>
+              </div>
+              <div class="macro-item">
+                <div class="macro-label">Gorduras</div>
+                <div class="macro-value">${alimento.gordurasPorGrama}g</div>
+              </div>
+            </div>
+            <div class="food-info">
+              Adicionado em: ${new Date(alimento.criadoEm).toLocaleDateString(
+                "pt-BR"
+              )}
+            </div>
+          </div>
+        `
+          )
+          .join("");
+      }
+
+      // Filtrar alimentos
+      function filtrarAlimentos() {
+        const termo = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const cards = document.querySelectorAll(".food-card");
+
+        cards.forEach((card) => {
+          const nome = card.getAttribute("data-name");
+          if (nome.includes(termo)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      // Confirmar exclusão
+      function confirmarExclusao(id, nome) {
+        if (
+          confirm(
+            `Tem certeza que deseja excluir o alimento "${nome}"?\n\nEsta ação também removerá todas as refeições que usam este alimento.`
+          )
+        ) {
+          const sucesso = NutriTrack.apagarAlimento(id);
+          if (sucesso) {
+            alert("Alimento excluído com sucesso!");
+            carregarAlimentos();
+          } else {
+            alert("Erro ao excluir o alimento.");
+          }
+        }
+      }
+
+      // Modal para adicionar alimento
+      function abrirModalAdicionar() {
+        document.getElementById("addFoodModal").style.display = "block";
+      }
+
+      function fecharModalAdicionar() {
+        document.getElementById("addFoodModal").style.display = "none";
+        document.getElementById("addFoodForm").reset();
+      }
+
+      // Adicionar alimento
+      document
+        .getElementById("addFoodForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nome = document.getElementById("foodName").value;
+          const calorias = document.getElementById("caloriesPerGram").value;
+          const proteinas = document.getElementById("proteinPerGram").value;
+          const carboidratos = document.getElementById("carbsPerGram").value;
+          const gorduras = document.getElementById("fatPerGram").value;
+
+          NutriTrack.adicionarAlimento(
+            nome,
+            calorias,
+            proteinas,
+            carboidratos,
+            gorduras
+          );
+
+          alert("Alimento adicionado com sucesso!");
+          fecharModalAdicionar();
+          carregarAlimentos();
+        });
+
+      // Fechar modal clicando fora
+      window.onclick = function (event) {
+        const modal = document.getElementById("addFoodModal");
+        if (event.target === modal) {
+          fecharModalAdicionar();
+        }
+      };
+
+      // Carregar alimentos ao iniciar
+      carregarAlimentos();
+    </script>
+  </body>
+</html>

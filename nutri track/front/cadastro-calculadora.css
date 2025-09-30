@@ -1,21 +1,106 @@
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #22c55e;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #0d0d0d; /* preto de fundo */
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   padding: 20px;
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #111;
+  background-color: #1a1a1a;
+  padding: 2rem;
   border-radius: 12px;
-  padding: 30px;
-  border: 1px solid #14532d;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
 }
 
-h1 {
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ff88; /* verde principal */
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos da seção de cadastro */
+.section {
+  width: 100%;
+}
+
+.section h2 {
+  margin-bottom: 2rem;
+  color: #00cc66;
+}
+
+.campo {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #b3ffcc;
+}
+
+.campo input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #262626;
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+.campo input:focus {
+  border: 2px solid #00ff88;
+}
+
+button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #00cc66;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #00ff88;
+  color: #000;
+}
+
+.esqueci {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #66ffb2;
+  cursor: pointer;
+}
+
+.esqueci:hover {
+  text-decoration: underline;
+}
+
+/* Estilos da calculadora */
+.section h1 {
   text-align: center;
   color: #22c55e;
   margin-bottom: 30px;
@@ -28,12 +113,14 @@ h1 {
   border-radius: 8px;
   margin-bottom: 20px;
   border: 1px solid #14532d;
+  text-align: left;
 }
 
 .form-section h3 {
   color: #22c55e;
   margin-bottom: 15px;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .form-row {
@@ -48,14 +135,14 @@ h1 {
   flex-direction: column;
 }
 
-label {
+.form-group label {
   color: #9ca3af;
   margin-bottom: 5px;
   font-size: 0.9rem;
 }
 
-input,
-select {
+.form-group input,
+.form-group select {
   background: #222;
   border: 1px solid #14532d;
   color: #22c55e;
@@ -64,28 +151,11 @@ select {
   font-size: 1rem;
 }
 
-input:focus,
-select:focus {
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
   border-color: #22c55e;
   box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
-}
-
-button {
-  background: #22c55e;
-  border: none;
-  color: #000;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 10px;
-}
-
-button:hover {
-  background: #16a34a;
 }
 
 .results {
@@ -170,12 +240,26 @@ button:hover {
   text-align: center;
 }
 
+/* Responsividade */
 @media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+    margin: 10px;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }
 
   .macro-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .section h1 {
+    font-size: 1.5rem;
   }
 }
